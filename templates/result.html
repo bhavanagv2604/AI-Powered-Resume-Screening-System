@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Analysis Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>Resume Analysis Results</h1>
+
+    <div class="result-card">
+
+        <h2>Your Resume Match Score</h2>
+
+        <div class="score">{{ score }}%</div>
+
+        <h3>✅ Matching Skills</h3>
+
+        <ul>
+            {% for skill in matched_skills %}
+                <li>{{ skill }}</li>
+            {% else %}
+                <li>No matching skills detected.</li>
+            {% endfor %}
+        </ul>
+
+        <h3>📚 Skills Not Detected</h3>
+
+        <ul>
+            {% for skill in missing_skills %}
+                <li>{{ skill }}</li>
+            {% else %}
+                <li>No missing skills detected.</li>
+            {% endfor %}
+        </ul>
+
+        <p class="note">
+            This score measures detected skill coverage.
+            It is not a complete assessment of job suitability.
+        </p>
+
+        <a class="button" href="/">Analyze Another Resume</a>
+
+    </div>
+
+</body>
+</html>
