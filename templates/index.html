@@ -3,27 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Resume Analyzer</title>
-    <link rel=""stylesheet"href="{{url_for('static',filename='style.css')}}">
+    <title>AI-Powered Resume Screening System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>AI Resume Analyzer</h1>
+    <h1>AI-Powered Resume Screening System</h1>
 
-    <p>Upload your resume and compare it with a job description.</p>
+    <p>Analyze your resume against a job description and discover your matching skills.</p>
 
     <form action="/analyze" method="POST" enctype="multipart/form-data">
-        <label>Upload Resume (PDF):</label>
-        <input type="file" name="resume" accept=".pdf" required>
+        <label for="resume">Upload Your Resume (PDF):</label><br>
+        <input type="file" id="resume" name="resume" accept=".pdf" required>
 
         <br><br>
 
-        <label>Job Description:</label>
-        <br>
-        <textarea name="job_description" rows="8" cols="50" required></textarea>
+        <label for="job_description">Enter the Job Description:</label><br>
+        <textarea
+            id="job_description"
+            name="job_description"
+            rows="8"
+            cols="50"
+            placeholder="Paste the job description here..."
+            required
+        ></textarea>
 
         <br><br>
 
-        <button type="submit">Analyze Resume</button>
+        <button type="submit">Analyze My Resume</button>
     </form>
+
+    <footer>
+        <p>Resume analysis powered by Python and Flask.</p>
+        <p>Note: The match score is based on detected keywords and does not determine overall job suitability.</p>
+    </footer>
 </body>
 </html>
